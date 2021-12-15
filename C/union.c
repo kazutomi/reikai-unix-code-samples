@@ -1,19 +1,19 @@
 #include <assert.h>	/* assert */
 #include <stdio.h>	/* printf */
 
-union any_type { 
+union any_t { 
     char   c;
     int    i;
     float  f;
     double d;
 };
 
-enum any_type_discr { ANY_CHAR, ANY_INT, ANY_FLOAT, ANY_DOUBLE };
+enum any_t_discr { ANY_CHAR, ANY_INT, ANY_FLOAT, ANY_DOUBLE };
 
-union any_type
-any_add (union any_type x, union any_type y, enum any_type_discr discr)
+union any_t
+any_add (union any_t x, union any_t y, enum any_t_discr discr)
 {
-    union any_type ret;
+    union any_t ret;
     switch (discr) {
     case ANY_CHAR:   ret.c = x.c + y.c; break;
     case ANY_INT:    ret.i = x.i + y.i; break;
@@ -27,7 +27,7 @@ any_add (union any_type x, union any_type y, enum any_type_discr discr)
 
 int main (void)
 {
-    union any_type a1, a2, a3;
+    union any_t a1, a2, a3;
     a1.i = 999;
     printf ("%d\n", a1.i);
     a2.i = 1;
